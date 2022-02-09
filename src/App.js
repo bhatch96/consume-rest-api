@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Home from './webpages/home';
+import User from './webpages/user';
+import Index from './webpages/index';
+import { BasicTable } from './webpages/BasicTable';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+const Webpages = () => {
+    return(
+        <Router>
+            <Route exact path="/" component= {Home} />
+            <Route exact path = "/index" component = {Index} />
+            <Route exact path = "/basictable" component = {BasicTable}/>
+        </Router>
+    );
+};
+export default Webpages;
